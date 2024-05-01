@@ -23,21 +23,21 @@
 <meta property="og:site_name" content="刘鸭鸭的博客">
 <meta property="og:description" content="ElasticSearch  作用：日志存储和检索。   filebeat：用于日志收集 logstash：日志 转换，可也可以日志采集 kibana：用于日志展示 kafka：消息队列   准备机器   192.168.10.101: 2C4G-50G，node1-10-101，root&#x2F;123456 192.168.10.102: 2C4G-50G，node2-10-102，root">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://liuxx66.github.io/ElasticSearch.assets/image-20240402211217013.png">
-<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/ElasticSearch.assets/image-20240402211249241.png">
-<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/ElasticSearch.assets/image-20240406165706121.png">
-<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/ElasticSearch.assets/image-20240414152952792.png">
-<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/ElasticSearch.assets/image-20240409150340946.png">
-<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/ElasticSearch.assets/image-20240409154424169.png">
-<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/ElasticSearch.assets/image-20240409154506837.png">
-<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/ElasticSearch.assets/image-20240409154931462.png">
-<meta property="og:image" content="https://liuxx66.github.io/ElasticSearch.assets/image-20240409154839568.png">
+<meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240402211217013.png">
+<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/source/_posts/ElasticSearch/image-20240402211249241.png">
+<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/source/_posts/ElasticSearch/image-20240406165706121.png">
+<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/source/_posts/ElasticSearch/image-20240414152952792.png">
+<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/source/_posts/ElasticSearch/image-20240409150340946.png">
+<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/source/_posts/ElasticSearch/image-20240409154424169.png">
+<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/source/_posts/ElasticSearch/image-20240409154506837.png">
+<meta property="og:image" content="https://liuxx66.github.io/2024/05/11/ElasticSearch/source/_posts/ElasticSearch/image-20240409154931462.png">
+<meta property="og:image" content="https://liuxx66.github.io/source/_posts/ElasticSearch/image-20240409154839568.png">
 <meta property="article:published_time" content="2024-05-11T14:35:20.000Z">
-<meta property="article:modified_time" content="2024-05-01T14:35:06.142Z">
+<meta property="article:modified_time" content="2024-05-01T14:42:46.621Z">
 <meta property="article:author" content="liuxx66">
 <meta property="article:tag" content="ElasticSearch_v7.17.15">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://liuxx66.github.io/ElasticSearch.assets/image-20240402211217013.png">
+<meta name="twitter:image" content="https://liuxx66.github.io/ElasticSearch/image-20240402211217013.png">
   
   
   
@@ -309,8 +309,8 @@
 
 <blockquote>
 <p>找到以前版本</p>
-<p><img src="/ElasticSearch.assets/image-20240402211217013.png" srcset="/img/loading.gif" lazyload alt="image-20240402211217013"></p>
-<img src="ElasticSearch.assets/image-20240402211249241.png" srcset="/img/loading.gif" lazyload alt="image-20240402211249241" style="zoom:67%;" />
+<p><img src="/ElasticSearch/image-20240402211217013.png" srcset="/img/loading.gif" lazyload alt="image-20240402211217013"></p>
+<img src="source/_posts/ElasticSearch/image-20240402211249241.png" srcset="/img/loading.gif" lazyload alt="image-20240402211249241" style="zoom:67%;" />
 </blockquote>
 <h4 id="1-1、上传RPM包并安装"><a href="#1-1、上传RPM包并安装" class="headerlink" title="1.1、上传RPM包并安装"></a>1.1、上传RPM包并安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir -p /opt/elasticSearch<br>cd /opt/elasticSearch/<br><br>yum -y install elasticsearch-7.17.15-x86_64.rpm<br></code></pre></td></tr></table></figure>
 
@@ -585,7 +585,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart es7<br>systemctl restart kibana<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="4、ES常见概念"><a href="#4、ES常见概念" class="headerlink" title="4、ES常见概念"></a>4、ES常见概念</h3><h4 id="4-1、集群同步机制"><a href="#4-1、集群同步机制" class="headerlink" title="4.1、集群同步机制"></a>4.1、集群同步机制</h4><img src="ElasticSearch.assets/image-20240406165706121.png" srcset="/img/loading.gif" lazyload alt="image-20240406165706121" style="zoom:80%;" />
+<h3 id="4、ES常见概念"><a href="#4、ES常见概念" class="headerlink" title="4、ES常见概念"></a>4、ES常见概念</h3><h4 id="4-1、集群同步机制"><a href="#4-1、集群同步机制" class="headerlink" title="4.1、集群同步机制"></a>4.1、集群同步机制</h4><img src="source/_posts/ElasticSearch/image-20240406165706121.png" srcset="/img/loading.gif" lazyload alt="image-20240406165706121" style="zoom:80%;" />
 
 <ul>
 <li><p>集群颜色</p>
@@ -623,7 +623,7 @@
 <blockquote>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs applescript">词条term		文档<span class="hljs-built_in">id</span><br>小米			<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span><br>手机			<span class="hljs-number">1</span>,<span class="hljs-number">2</span><br>华为			<span class="hljs-number">2</span>,<span class="hljs-number">3</span><br>充电器		    <span class="hljs-number">3</span><br>手环			<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<img src="ElasticSearch.assets/image-20240414152952792.png" srcset="/img/loading.gif" lazyload alt="image-20240414152952792" style="zoom:80%;" />
+<img src="source/_posts/ElasticSearch/image-20240414152952792.png" srcset="/img/loading.gif" lazyload alt="image-20240414152952792" style="zoom:80%;" />
 
 
 
@@ -886,7 +886,7 @@
 </ul>
 <blockquote>
 <p>这里有个坑 7.17.15版本。没有elasticsearch-ik分词器</p>
-<img src="ElasticSearch.assets/image-20240409150340946.png" srcset="/img/loading.gif" lazyload alt="image-20240409150340946" style="zoom:67%;" />
+<img src="source/_posts/ElasticSearch/image-20240409150340946.png" srcset="/img/loading.gif" lazyload alt="image-20240409150340946" style="zoom:67%;" />
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir /elasticsearch/softwares/es7/elasticsearch-7.17.15/plugins/ik<br>cd /elasticsearch/softwares/es7/elasticsearch-7.17.15/plugins/ik<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">上传</span><br>[root@node10-101 ik]# ls<br>elasticsearch-analysis-ik-7.17.16.zip<br><span class="hljs-meta prompt_"># </span><span class="language-bash">解压</span><br>unzip ./elasticsearch-analysis-ik-7.17.16.zip<br><br>[root@node10-101 ik]# ls<br>commons-codec-1.9.jar    elasticsearch-analysis-ik-7.17.16.jar  httpcore-4.4.4.jar<br>commons-logging-1.2.jar  elasticsearch-analysis-ik-7.17.16.zip  plugin-descriptor.properties<br>config                   httpclient-4.5.2.jar                   plugin-security.policy<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">修改配置</span><br>[root@node10-101 ik]# pwd<br>/elasticsearch/softwares/es7/elasticsearch-7.17.15/plugins/ik<br>[root@node10-101 ik]# mv elasticsearch-analysis-ik-7.17.16.jar elasticsearch-analysis-ik-7.17.15.jar<br><span class="hljs-meta prompt_"># </span><span class="language-bash">修改配置文件</span><br>[root@node10-101 ik]# yy plugin-descriptor.properties<br>description=IK Analyzer for Elasticsearch<br>version=7.17.15<br>name=analysis-ik<br>classname=org.elasticsearch.plugin.analysis.ik.AnalysisIkPlugin<br>java.version=1.8<br>elasticsearch.version=7.17.15<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启服务</span><br>systemctl restart es7<br></code></pre></td></tr></table></figure>
 
@@ -931,17 +931,17 @@
 
 
 
-<h4 id="10-2、使用"><a href="#10-2、使用" class="headerlink" title="10.2、使用"></a>10.2、使用</h4><img src="ElasticSearch.assets/image-20240409154424169.png" srcset="/img/loading.gif" lazyload alt="image-20240409154424169" style="zoom:67%;" />
+<h4 id="10-2、使用"><a href="#10-2、使用" class="headerlink" title="10.2、使用"></a>10.2、使用</h4><img src="source/_posts/ElasticSearch/image-20240409154424169.png" srcset="/img/loading.gif" lazyload alt="image-20240409154424169" style="zoom:67%;" />
 
 
 
-<img src="ElasticSearch.assets/image-20240409154506837.png" srcset="/img/loading.gif" lazyload alt="image-20240409154506837" style="zoom:67%;" />
+<img src="source/_posts/ElasticSearch/image-20240409154506837.png" srcset="/img/loading.gif" lazyload alt="image-20240409154506837" style="zoom:67%;" />
 
 
 
-<h5 id="10-2-1、开发工具控制台"><a href="#10-2-1、开发工具控制台" class="headerlink" title="10.2.1、开发工具控制台"></a>10.2.1、开发工具控制台</h5><img src="ElasticSearch.assets/image-20240409154931462.png" srcset="/img/loading.gif" lazyload alt="image-20240409154931462" style="zoom:67%;" />
+<h5 id="10-2-1、开发工具控制台"><a href="#10-2-1、开发工具控制台" class="headerlink" title="10.2.1、开发工具控制台"></a>10.2.1、开发工具控制台</h5><img src="source/_posts/ElasticSearch/image-20240409154931462.png" srcset="/img/loading.gif" lazyload alt="image-20240409154931462" style="zoom:67%;" />
 
-<p><img src="/ElasticSearch.assets/image-20240409154839568.png" srcset="/img/loading.gif" lazyload alt="image-20240409154839568"></p>
+<p><img src="/source/_posts/ElasticSearch/image-20240409154839568.png" srcset="/img/loading.gif" lazyload alt="image-20240409154839568"></p>
 <hr>
 <h3 id="11、master节点和data节点分离"><a href="#11、master节点和data节点分离" class="headerlink" title="11、master节点和data节点分离"></a>11、master节点和data节点分离</h3><h4 id="11-1、常用角色"><a href="#11-1、常用角色" class="headerlink" title="11.1、常用角色"></a>11.1、常用角色</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">c: Cold data <br><br>d: data <span class="hljs-keyword">node</span><br><br>f:<span class="hljs-title"> frozen</span> <span class="hljs-keyword">node</span><br>		<br>h:<span class="hljs-title"> hot</span> <span class="hljs-keyword">node</span><br><br>i:<span class="hljs-title"> ingest</span> <span class="hljs-keyword">node</span><br><br>l:<span class="hljs-title"> machine</span> learning <span class="hljs-keyword">node</span><br><br>m:<span class="hljs-title"> master</span> eligible <span class="hljs-keyword">node</span><br><br>r:<span class="hljs-title"> remote</span> cluster client <span class="hljs-keyword">node</span><br><br>s:<span class="hljs-title"> content</span> <span class="hljs-keyword">node</span><br><br>t:<span class="hljs-title"> transform</span> <span class="hljs-keyword">node</span><br><br>v:<span class="hljs-title"> voting-only</span> <span class="hljs-keyword">node</span><br>		<br>w:<span class="hljs-title"> warm</span> <span class="hljs-keyword">node</span><br><br>-:<span class="hljs-title"> coordinating</span> <span class="hljs-keyword">node</span> <span class="hljs-title">only</span><br></code></pre></td></tr></table></figure>
 
@@ -1075,8 +1075,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/01/ElasticSearch-assets/" title="ElasticSearch.assets">
-                        <span class="hidden-mobile">ElasticSearch.assets</span>
+                      <a href="/2024/04/30/Windows%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%85%8D%E7%BD%AEnvm_npm%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" title="Windows系统配置nvm_npm版本管理工具">
+                        <span class="hidden-mobile">Windows系统配置nvm_npm版本管理工具</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

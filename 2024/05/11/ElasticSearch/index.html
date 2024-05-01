@@ -27,13 +27,13 @@
 <meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240402211249241.png">
 <meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240406165706121.png">
 <meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240414152952792.png">
-<meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/iimage-20240409150340946.png">
+<meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240409150340946.png">
 <meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240409154424169.png">
 <meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240409154506837.png">
 <meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240409154931462.png">
 <meta property="og:image" content="https://liuxx66.github.io/ElasticSearch/image-20240409154839568.png">
 <meta property="article:published_time" content="2024-05-11T14:35:20.000Z">
-<meta property="article:modified_time" content="2024-05-01T14:56:45.595Z">
+<meta property="article:modified_time" content="2024-05-01T15:02:36.977Z">
 <meta property="article:author" content="liuxx66">
 <meta property="article:tag" content="ElasticSearch_v7.17.15">
 <meta name="twitter:card" content="summary_large_image">
@@ -880,7 +880,7 @@
 </ul>
 <blockquote>
 <p>这里有个坑 7.17.15版本。没有elasticsearch-ik分词器</p>
-<p><img src="/ElasticSearch/iimage-20240409150340946.png" srcset="/img/loading.gif" lazyload alt="image-20240409150340946.png"></p>
+<p><img src="/ElasticSearch/image-20240409150340946.png" srcset="/img/loading.gif" lazyload alt="image-20240409150340946.png"></p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir /elasticsearch/softwares/es7/elasticsearch-7.17.15/plugins/ik<br>cd /elasticsearch/softwares/es7/elasticsearch-7.17.15/plugins/ik<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">上传</span><br>[root@node10-101 ik]# ls<br>elasticsearch-analysis-ik-7.17.16.zip<br><span class="hljs-meta prompt_"># </span><span class="language-bash">解压</span><br>unzip ./elasticsearch-analysis-ik-7.17.16.zip<br><br>[root@node10-101 ik]# ls<br>commons-codec-1.9.jar    elasticsearch-analysis-ik-7.17.16.jar  httpcore-4.4.4.jar<br>commons-logging-1.2.jar  elasticsearch-analysis-ik-7.17.16.zip  plugin-descriptor.properties<br>config                   httpclient-4.5.2.jar                   plugin-security.policy<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">修改配置</span><br>[root@node10-101 ik]# pwd<br>/elasticsearch/softwares/es7/elasticsearch-7.17.15/plugins/ik<br>[root@node10-101 ik]# mv elasticsearch-analysis-ik-7.17.16.jar elasticsearch-analysis-ik-7.17.15.jar<br><span class="hljs-meta prompt_"># </span><span class="language-bash">修改配置文件</span><br>[root@node10-101 ik]# yy plugin-descriptor.properties<br>description=IK Analyzer for Elasticsearch<br>version=7.17.15<br>name=analysis-ik<br>classname=org.elasticsearch.plugin.analysis.ik.AnalysisIkPlugin<br>java.version=1.8<br>elasticsearch.version=7.17.15<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">重启服务</span><br>systemctl restart es7<br></code></pre></td></tr></table></figure>
 
